@@ -27,13 +27,13 @@ sns.scatterplot(data=X_df, x='x', y='y')
 plt.show()
 X_max = PCA(svd_solver='full', n_components=10).fit(df)
 evr_cum = np.cumsum(X_max.explained_variance_ratio_)
+print(evr_cum[1])
 
 """
 Введите долю объясненной дисперсии при использовании первых двух главных компонент.
 Какое минимальное количество главных компонент необходимо использовать, чтобы доля
 объясненной дисперсии превышала 0.85
 """
-print(np.cumsum(evr_cum[1]))
 for _ in range(len(evr_cum)):
     if evr_cum[_] > 0.85:
         print(_+1)
